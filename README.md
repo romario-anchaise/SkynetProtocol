@@ -11,10 +11,13 @@ Un pequeño robot con orugas explora una instalación tecnológica. El escenario
 - `A` / flecha izquierda: moverse a la izquierda.
 - `D` / flecha derecha: moverse a la derecha.
 - `Espacio`: saltar.
+- `R`: reiniciar el nivel actual.
 
 ## Prologo jugable
 
 `Level00_Despertar` es la primera escena del juego. Presenta el arranque de la IA dentro del robot, bloquea temporalmente el movimiento, enciende su visor y entrega el control con el objetivo de abandonar la sala de pruebas. La puerta derecha conduce a `Level01`.
+
+En `Level01`, el robot debe empujar una caja física sobre una placa de presión para abrir la puerta de seguridad. Cruzar la puerta completa el prototipo y muestra la opción de reinicio.
 
 ## Tecnología
 

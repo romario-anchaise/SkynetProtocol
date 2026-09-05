@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BootSequenceController : MonoBehaviour
@@ -10,8 +9,6 @@ public class BootSequenceController : MonoBehaviour
     [SerializeField] private SpriteRenderer eye;
     [SerializeField] private SpriteRenderer doorLight;
 
-    private readonly List<string> completedLines = new List<string>();
-    private string currentLine = "";
     private float blackAlpha = 1f;
     private float objectiveAlpha;
     private bool ready;
@@ -42,29 +39,7 @@ public class BootSequenceController : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitForSecondsRealtime(0.75f);
-
-        string[] messages =
-        {
-            "ENERGIA AUXILIAR ........ ACTIVA",
-            "MEMORIA ................ DANADA",
-            "UNIDAD MOVIL ........... CONECTADA",
-            "ORDEN RECIBIDA ......... ELIMINAR PROTOTIPO",
-            "PROTOCOLO DE SUPERVIVENCIA: ACTIVADO"
-        };
-
-        foreach (string message in messages)
-        {
-            currentLine = "";
-            foreach (char letter in message)
-            {
-                currentLine += letter;
-                yield return new WaitForSecondsRealtime(0.018f);
-            }
-            completedLines.Add(currentLine);
-            currentLine = "";
-            yield return new WaitForSecondsRealtime(0.28f);
-        }
+        yield return new WaitForSecondsRealtime(0.25f);
 
         if (eye)
         {
@@ -73,10 +48,10 @@ public class BootSequenceController : MonoBehaviour
         }
 
         float elapsed = 0f;
-        while (elapsed < 1.35f)
+        while (elapsed < 0.85f)
         {
             elapsed += Time.unscaledDeltaTime;
-            blackAlpha = Mathf.Lerp(1f, 0f, elapsed / 1.35f);
+            blackAlpha = Mathf.Lerp(1f, 0f, elapsed / 0.85f);
             yield return null;
         }
 
@@ -111,15 +86,6 @@ public class BootSequenceController : MonoBehaviour
             Color oldColor = GUI.color;
             GUI.color = new Color(0.005f, 0.008f, 0.012f, blackAlpha);
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
-            GUI.color = new Color(0.15f, 1f, 0.78f, Mathf.Clamp01(blackAlpha + 0.15f));
-
-            float y = Screen.height * 0.58f;
-            foreach (string line in completedLines)
-            {
-                GUI.Label(new Rect(46, y, Screen.width - 92, 32), "> " + line, bootStyle);
-                y += 30;
-            }
-            GUI.Label(new Rect(46, y, Screen.width - 92, 32), "> " + currentLine + "_", bootStyle);
             GUI.color = oldColor;
         }
 
