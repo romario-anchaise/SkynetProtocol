@@ -12,6 +12,10 @@ Un pequeño robot con orugas explora una instalación tecnológica. El escenario
 - `D` / flecha derecha: moverse a la derecha.
 - `Espacio`: saltar.
 
+## Prologo jugable
+
+`Level00_Despertar` es la primera escena del juego. Presenta el arranque de la IA dentro del robot, bloquea temporalmente el movimiento, enciende su visor y entrega el control con el objetivo de abandonar la sala de pruebas. La puerta derecha conduce a `Level01`.
+
 ## Tecnología
 
 - Unity 6.3 LTS (`6000.3.22f1`).
