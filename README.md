@@ -25,3 +25,15 @@ Un pequeño robot con orugas explora una instalación tecnológica. El escenario
 - `Assets/Scripts`: control y animación del robot.
 - `Assets/Prefabs/Environment`: kit modular de construcción.
 - `Assets/Art`: sprites y conceptos visuales.
+
+## Kit de laboratorio
+
+Los accesorios están separados por tipo para que puedan arrastrarse directamente a la escena:
+
+- `Furniture`: escritorios, silla, banco, estantería y casillero.
+- `Electronics`: laptops, monitores, teclado, tableta, cámara y consolas.
+- `Science`: microscopio, tubos, químicos, camilla, brazo robótico y generador.
+- `Clutter`: cables, papeles, herramientas, baterías, barriles y piezas rotas.
+- `Signs`: señalización y terminal de acceso.
+
+Son decorativos y no tienen colisión, por lo que se pueden superponer libremente. Cada prefab incluye un componente `Sorting Group`; modifica `Order in Layer` para colocarlo delante o detrás de otros objetos. El kit completo puede reconstruirse desde `Tools > Skynet Protocol > Regenerar kit de accesorios del laboratorio`.
